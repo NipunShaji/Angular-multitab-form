@@ -1,0 +1,13 @@
+<form [formGroup]="mainForm" (ngSubmit)="formSubmitted()">
+  <mat-tab-group>
+    <mat-tab label="User Details"> <app-main [userForm]="mainForm.get('main')" ></app-main> </mat-tab>
+    <mat-tab label="Address"> <app-address [addressForm]="mainForm.get('address')" ></app-address> </mat-tab>
+    <mat-tab label="Card Details"> <app-card [cardForm]="mainForm.get('card')" ></app-card> </mat-tab>
+  </mat-tab-group>
+  <mat-error *ngIf="showError" >
+    Please fill out the form
+  </mat-error>
+  <div id="submit-row" >
+    <button mat-raised-button color="primary" type="submit" >Submit</button>
+  </div>
+</form>

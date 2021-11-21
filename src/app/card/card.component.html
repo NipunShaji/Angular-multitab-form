@@ -1,0 +1,41 @@
+<div [formGroup]="cardForm" >
+  <br>
+  <mat-form-field>
+    <mat-label>Card Number</mat-label>
+    <input matInput placeholder="1234123412341234" formControlName="cardNumber" >
+  </mat-form-field>
+  <div *ngIf="getControl.cardNumber.touched  && getControl.cardNumber.invalid" >
+    <mat-error *ngIf="getControl.cardNumber.errors.required" >This field is required</mat-error>
+    <mat-error *ngIf="getControl.cardNumber.errors.minlength" >Minimun 16 charachers required</mat-error>
+    <mat-error *ngIf="getControl.cardNumber.errors.maxlength" >Maximun 16 charachers allowed</mat-error>
+  </div>
+  <br>
+  <mat-form-field>
+    <mat-label>Exp</mat-label>
+    <input matInput placeholder="MM/YYYY" formControlName="expiryDate" >
+  </mat-form-field>
+  <div *ngIf="getControl.expiryDate.touched  && getControl.expiryDate.invalid" >
+    <mat-error *ngIf="getControl.expiryDate.errors.required" >This field is required</mat-error>
+    <mat-error *ngIf="getControl.expiryDate.errors.pattern" >Please enter a valid Expiry Date</mat-error>
+  </div>
+  <br>
+  <mat-form-field>
+    <mat-label>CVV</mat-label>
+    <input matInput placeholder="123" formControlName="secureCode" >
+  </mat-form-field>
+  <div *ngIf="getControl.secureCode.touched  && getControl.secureCode.invalid" >
+    <mat-error *ngIf="getControl.secureCode.errors.required" >This field is required</mat-error>
+    <mat-error *ngIf="getControl.secureCode.errors.pattern" >Please enter a valid CVV</mat-error>
+  </div>
+  <br>
+  <mat-form-field>
+    <mat-label>Name on Card</mat-label>
+    <input matInput placeholder="John Doe" formControlName="name" >
+  </mat-form-field>
+  <div *ngIf="getControl.name.touched  && getControl.name.invalid" >
+    <mat-error *ngIf="getControl.name.errors.required" >This field is required</mat-error>
+    <mat-error *ngIf="getControl.name.errors.minlength" >Minimun 4 charachers required</mat-error>
+    <mat-error *ngIf="getControl.name.errors.maxlength" >Maximun 30 charachers allowed</mat-error>
+  </div>
+  <br>
+</div>

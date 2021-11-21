@@ -1,0 +1,24 @@
+<div [formGroup]="userForm" >
+  <br>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Just a placeholder" formControlName="name" >
+  </mat-form-field>
+  <div *ngIf="getControl.name.touched  && getControl.name.invalid" >
+    <mat-error *ngIf="getControl.name.errors.required" >This field is required</mat-error>
+    <mat-error *ngIf="getControl.name.errors.minlength" >Minimun 4 charachers required</mat-error>
+    <mat-error *ngIf="getControl.name.errors.maxlength" >Maximun 30 charachers allowed</mat-error>
+  </div>
+  <br>
+  <br>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Just a placeholder" formControlName="username" >
+  </mat-form-field>
+  <div *ngIf="getControl.username.touched  && getControl.username.invalid" >
+    <mat-error *ngIf="getControl.username.errors.required" >This field is required</mat-error>
+    <mat-error *ngIf="getControl.username.errors.minlength" >Minimun 4 charachers required</mat-error>
+    <mat-error *ngIf="getControl.username.errors.maxlength" >Maximun 20 charachers allowed</mat-error>
+  </div>
+  <br>
+</div>
